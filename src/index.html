@@ -1,0 +1,73 @@
+<!-- Copyright 2016 Ankur Sinha 
+* Author: Ankur Sinha <sanjay DOT ankur AT gmail DOT com> 
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+* 
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+* 
+* You should have received a copy of the GNU General Public License
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*
+* File : 
+-->
+
+<html lang="en">
+  <head>
+    <!-- Bootstrap css theme stuff -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Open layers stuff -->
+    <style>
+      .map {
+        height: 500px;
+        width: 100%;
+        margin: auto;
+        padding: 5px;
+        /*border-style: solid;
+        border-radius: 5px;*/
+      }
+    </style>
+    <link rel="stylesheet" href="./openlayers/ol.css" type="text/css">
+    <script src="./openlayers/ol.js" type="text/javascript"></script>
+    <script src="./populate.js" type="text/javascript"></script>
+
+    <title>Cajal - computational neuroscience research map</title>
+  </head>
+  <body onload="init()">
+      <div class="container">
+          <div class="page-header">
+              <h1>Cajal <small>The computational neuroscience laboratory map</small></h1>
+          </div>
+      </div>
+      <div class="container">
+          <div class="row-fluid">
+              <div class="col-md-8" style="padding-right:20px; border-right: 1px solid #ccc;">
+                  <div id="map" class="map">
+                      <div id="popup"></div>
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  <h2>Info bar</h2>
+                  <p class="text-muted">Information will appear here when someone clicks a marker on the map</p>
+              </div>
+          </div>
+      </div>
+      <div class="container">
+          <div class="row-fluid">
+              <p class="lead">This map attempts to show the different laboratories around the world that carry out computational neuroscience research. Click on an icon to view information about the laboratory in the information bar.</p>
+          </div>
+      </div>
+      <footer class="footer">
+          <div class="container">
+              <hr>
+              <p class="text-muted">Based on <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> and <a href="http://getbootstrap.com/">Bootstrap</a>. Add your laboratory by opening a <a href="https://github.com/sanjayankur31/cajal/pulls">pull request</a> on <a href="https://github.com">GitHub</a>!</p>
+              <p class="text-muted">&copy; 2016 <a href="http://ankursinha.in/blog">Ankur Sinha</a>. This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
+          </div>
+      </footer>
+  </body>
+</html>
