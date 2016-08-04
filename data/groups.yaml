@@ -1,0 +1,38 @@
+%YAML 1.2
+# Master data file. Can be broken into multiple files if things get messy
+---
+-   group: UHBiocomputation
+    data:
+        leader: Dr. Volker Steuber
+        location: Hatfield, United Kingdom
+        coords:
+            lat: 51.7634
+            long: -0.02231
+        website: http://biocomputation.herts.ac.uk
+        contact: v dot steuber at herts dot ac dot uk
+        description: >
+            The Biocomputation Research Group forms part of the Centre for Computer Science and Informatics Research (CCSIR), which is based within the Science and Technology Research Institute (STRI) at the University of Hertfordshire. Research in the Biocomputation Research Group involves the development of computational models to study biological systems, and the application of biologically-inspired machine learning algorithms for the analysis of real-world data. Members of the Biocomputation Group analyse and simulate computational models at different levels of complexity, and collaborate closely with leading experimentalists in the UK and abroad.
+
+-   group: Another group
+    data:
+        leader: Dr. Someone
+        location: Somewhere
+        coords:
+            lat: 21.7634
+            long: 20.02231
+        website: http://biocomputation.herts.ac.uk
+        contact: something dot something at something dot com
+        description: >
+            Another group! Awesome!
+
+-   group: Equatorial tester
+    data:
+        leader: Dr. Someone
+        location: Somewhere
+        coords:
+            lat: 0
+            long: 0
+        website: http://biocomputation.herts.ac.uk
+        contact: something dot something at something dot com
+        description: >
+            Another group! Awesome!
