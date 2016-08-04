@@ -120,7 +120,40 @@ function addmarkers() {
                 leader: 'Upinder S. Bhalla',
                 location: 'National Centre for Biological Sciences, Bangalore',
                 website: 'http://www.ncbs.res.in/bhalla',
-                description: '<p>When we remember things, we activate an extensive array of events in the brain. Sensory input triggers whole-brain activity, which cascades through networks of brain cells. A torrent of electrical and chemical signals is launched in each cell, giving rise to changes in structures and connections between cells.</p> <p>A key aspect of memory is the ability to relate events that occur in sequences, such as landmarks, music, movements, or words in a sentence. We study how such sequences are formed during learning, how sequences cause changes in cells and connections, and how molecular and electrical signals encode and sustain memories.</p> <p>We use the new technique of optogenetics to monitor, as well as stimulate, brain cell activity using light. We can literally watch brain activity during learning, to see how sequences in the real world map to sequences in the brain. We replicate such sequences by projecting light patterns onto brain tissue slices, and ask how cells ‘learn’. Because these processes are so intertwined and complex, we use computer models to see how events at many levels of brain function give rise to memory. We have developed a major simulation tool called MOOSE, to build computer models from molecules to networks.</p><br />',
+                description: '<p>When we remember things, we activate an extensive array of events in the brain. Sensory input triggers whole-brain activity, which cascades through networks of brain cells. A torrent of electrical and chemical signals is launched in each cell, giving rise to changes in structures and connections between cells.</p> <p>A key aspect of memory is the ability to relate events that occur in sequences, such as landmarks, music, movements, or words in a sentence. We study how such sequences are formed during learning, how sequences cause changes in cells and connections, and how molecular and electrical signals encode and sustain memories.</p> <p>We use the new technique of optogenetics to monitor, as well as stimulate, brain cell activity using light. We can literally watch brain activity during learning, to see how sequences in the real world map to sequences in the brain. We replicate such sequences by projecting light patterns onto brain tissue slices, and ask how cells \'learn\'. Because these processes are so intertwined and complex, we use computer models to see how events at many levels of brain function give rise to memory. We have developed a major simulation tool called MOOSE, to build computer models from molecules to networks.</p><br />',
+                })
+                vectorSource.addFeature(iconFeature);
+                
+                var iconFeature = new ol.Feature({
+                geometry: new ol.geom.Point(ol.proj.transform([-73.964397, 40.807755],
+                'EPSG:4326','EPSG:3857')),
+                name: 'Bionet Group',
+                leader: 'Aurel Lazar',
+                location: 'Columbia University, New York',
+                website: 'http://www.bionet.ee.columbia.edu/',
+                description: '<p>Located at Columbia University\'s Department of Electrical Engineering, the Bionet Group is an interdisciplinary research team bringing together faculty and students from the biological and engineering sciences focusing on understanding the function of neural circuits, and the architecture of the fruit fly (Drosophila melanogaster) brain.</p> <p>Our research is enabled by (i) the rich array of theoretical concepts developed in the fields of communications/networking, control theory, information theory, machine learning, nonlinear dynamical systems, signal processing and systems identification, (ii) the recent dramatic increase in the availability of parallel computing resources, and (iii) the extraordinary advances in building a new generation of nanoscale brain machine interfaces.</p> <p>In order to effectively leverage these concepts/tools to advance our understanding of the functional principles underlying brain functions, we and other researchers in the biological sciences employ the constructivist paradigm from the world of engineering.</p> <p>The Bionet Group is an active and integral part of the world-class Columbia Neuroscience community and it is affiliated with the Columbia Center for Neuroengineering and Computation.</p> <p>Positions at the Bionet Group for Ph.D. students, postdoctoral researchers, and undergraduate/graduate interns are available on a rolling basis. Applicants interested in unlocking the mysteries of the brain are encouraged to send their resumes or CVs to Prof. Aurel A. Lazar. Preference will be given to applicants with strong mathematical, computational and/or neurobiological background.</p><br />',
+                })
+                vectorSource.addFeature(iconFeature);
+                
+                var iconFeature = new ol.Feature({
+                geometry: new ol.geom.Point(ol.proj.transform([-77.311714, 38.834752],
+                'EPSG:4326','EPSG:3857')),
+                name: 'Blackwell Lab',
+                leader: 'Avrama Blackwell',
+                location: 'George Mason University, Virginia',
+                website: 'http://krasnow1.gmu.edu/CENlab/index.html',
+                description: '</p>The Computational and Experimental Neuroplasticity Laboratory is a multidisciplinary research group devoted to the study of learning and memory. We are specifically interested in the biophysical and biochemical mechanisms of long term memory storage. In particular, we seek to understand the cellular events underlying the requirement for temporal proximity of stimuli to be associated, and the neural circuits involved in the behavioral expression of memory. </p><br />',
+                })
+                vectorSource.addFeature(iconFeature);
+                
+                var iconFeature = new ol.Feature({
+                geometry: new ol.geom.Point(ol.proj.transform([6.151485, 46.243625],
+                'EPSG:4326','EPSG:3857')),
+                name: 'Blue Brain Project',
+                leader: 'Henry Markram',
+                location: 'EPFL, Lausanne',
+                website: 'http://bluebrain.epfl.ch/',
+                description: '<p>The goal of the Blue Brain Project is to build biologically detailed digital reconstructions and simulations of the rodent, and ultimately the human brain. The supercomputer-based reconstructions and simulations built by the project offer a radically new approach for understanding the multilevel structure and function of the brain. The project\'s novel research strategy exploits interdependencies in the experimental data to obtain dense maps of the brain, without measuring every detail of its multiple levels of organization (molecules, cells, micro-circuits, brain regions, the whole brain). This strategy allows the project to build digital reconstructions (computer models) of the brain at an unprecedented level of biological detail.  Supercomputer-based simulation of their behavior turns understanding the brain into a tractable problem, providing a new tool to study the complex interactions within different levels of brain organization and to investigate the cross-level links leading from genes to cognition.</p><br />',
                 })
                 vectorSource.addFeature(iconFeature);
                 
