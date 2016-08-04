@@ -19,10 +19,11 @@ help:
 
 html:
 	$(PY) $(SCRIPT)
+	rm -fr $(OUTPUTDIR)/*
 	cp -r js css index.html $(OUTPUTDIR)
 
 
 ftp_upload: html
-	lftp ftp://$(FTP_USER)@$(FTP_HOST) -p $(FTP_PORT) -e "set ftp:ssl-force on; set ftp:ssl-protect-data on; set ssl:verify-certificate no; mirror -R --delete --parallel=3 --ignore-time $(OUTPUTDIR) $(FTP_TARGET_DIR) ; quit"
+	lftp ftp://$(FTP_USER)@$(FTP_HOST) -p $(FTP_PORT) -e "set ftp:ssl-force on; set ftp:ssl-protect-data on; set ssl:verify-certificate no; mirror -R --delete --parallel=3 $(OUTPUTDIR) $(FTP_TARGET_DIR) ; quit"
 
 .PHONY: html ftp_upload help
