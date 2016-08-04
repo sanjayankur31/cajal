@@ -1,7 +1,7 @@
-Cajal - The computational neuroscience laboratory map
+Cajal - The neuroscience laboratory map
 -----------------------------------------------------
 
-This is a tiny pet project I'm workin on. The idea is to mark all the laboratories carrying out computational neuroscience reseach on a world map in an attempt to make them more accessible to the community.
+This is a tiny pet project I'm workin on. The idea is to mark all the laboratories carrying out neuroscience reseach on a world map in an attempt to make them more accessible to the community.
 
 Contributing
 ============
