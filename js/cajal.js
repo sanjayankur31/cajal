@@ -87,7 +87,7 @@ function addmarkers() {
                 leader: 'Volker Steuber',
                 location: 'University of Hertfordshire, Hatfield, United Kingdom',
                 website: 'http://biocomputation.herts.ac.uk',
-                description: 'The Biocomputation Research Group forms part of the Centre for Computer Science and Informatics Research (CCSIR), which is based within the Science and Technology Research Institute (STRI) at the University of Hertfordshire. Research in the Biocomputation Research Group involves the development of computational models to study biological systems, and the application of biologically-inspired machine learning algorithms for the analysis of real-world data. Members of the Biocomputation Group analyse and simulate computational models at different levels of complexity, and collaborate closely with leading experimentalists in the UK and abroad.<br />',
+                description: '<p>The Biocomputation Research Group forms part of the Centre for Computer Science and Informatics Research (CCSIR), which is based within the Science and Technology Research Institute (STRI) at the University of Hertfordshire. Research in the Biocomputation Research Group involves the development of computational models to study biological systems, and the application of biologically-inspired machine learning algorithms for the analysis of real-world data. Members of the Biocomputation Group analyse and simulate computational models at different levels of complexity, and collaborate closely with leading experimentalists in the UK and abroad.</p><br />',
                 })
                 vectorSource.addFeature(iconFeature);
                 
@@ -98,7 +98,29 @@ function addmarkers() {
                 leader: 'Angus Silver',
                 location: 'University College London, United Kingdom',
                 website: 'http://silverlab.org',
-                description: 'The brain gathers information about the body and the surrounding world, allowing it to build internal representations and to plan and execute movement. Our lab works on how synapses, neurons and networks transmit and process such information and perform computations. The brain areas we investigate include the cerebellum and the sensory cortex. The main aim of our work is to develop a mechanistic understanding of brain function that links the molecular, synaptic, neuronal and network levels (Neuroscience). This requires a multidisciplinary approach that combines the most powerful experimental and theoretical methods available. To achieve this we both develop and apply new optical methods for measuring rapid signalling in 3D (Microscopy) and new software tools for data acquisition, analysis and modelling (Neuroinformatics). Application of these new experimental and theoretical approaches allows us to link neuronal mechanisms to information processing, thereby bridging different levels of description of brain function.<br />',
+                description: '<p>The brain gathers information about the body and the surrounding world, allowing it to build internal representations and to plan and execute movement. Our lab works on how synapses, neurons and networks transmit and process such information and perform computations. The brain areas we investigate include the cerebellum and the sensory cortex.</p> <p>The main aim of our work is to develop a mechanistic understanding of brain function that links the molecular, synaptic, neuronal and network levels (Neuroscience). This requires a multidisciplinary approach that combines the most powerful experimental and theoretical methods available. To achieve this we both develop and apply new optical methods for measuring rapid signalling in 3D (Microscopy) and new software tools for data acquisition, analysis and modelling (Neuroinformatics).</p> <p>Application of these new experimental and theoretical approaches allows us to link neuronal mechanisms to information processing, thereby bridging different levels of description of brain function.</p><br />',
+                })
+                vectorSource.addFeature(iconFeature);
+                
+                var iconFeature = new ol.Feature({
+                geometry: new ol.geom.Point(ol.proj.transform([139.544066, 35.656864],
+                'EPSG:4326','EPSG:3857')),
+                name: 'Yamazaki lab',
+                leader: 'Tadashi Yamazaki',
+                location: 'The University of Electro-Communications, Tokyo',
+                website: 'http://numericalbrain.org/en',
+                description: '<p>Yamazaki laboratory has been engaged in theoretical/computational modeling and numerical simulation of neural networks of the brain. We have three research topics as follows</p> <ol> <li>Neuroscience, to understand how the brain works</li> <li>Computational science, to conduct computer simulation faster and reliable</li> <li>Engineering, to apply the power of neural network models for real-world problems</li> </ol> <p>We are synergistically working on neuroscience, mathematics, computational science, rehabilitation, and robotics, to better understand the brain.</p><br />',
+                })
+                vectorSource.addFeature(iconFeature);
+                
+                var iconFeature = new ol.Feature({
+                geometry: new ol.geom.Point(ol.proj.transform([77.58021, 13.072373],
+                'EPSG:4326','EPSG:3857')),
+                name: 'Bhalla Lab',
+                leader: 'Upinder S. Bhalla',
+                location: 'National Centre for Biological Sciences, Bangalore',
+                website: 'http://www.ncbs.res.in/bhalla',
+                description: '<p>When we remember things, we activate an extensive array of events in the brain. Sensory input triggers whole-brain activity, which cascades through networks of brain cells. A torrent of electrical and chemical signals is launched in each cell, giving rise to changes in structures and connections between cells.</p> <p>A key aspect of memory is the ability to relate events that occur in sequences, such as landmarks, music, movements, or words in a sentence. We study how such sequences are formed during learning, how sequences cause changes in cells and connections, and how molecular and electrical signals encode and sustain memories.</p> <p>We use the new technique of optogenetics to monitor, as well as stimulate, brain cell activity using light. We can literally watch brain activity during learning, to see how sequences in the real world map to sequences in the brain. We replicate such sequences by projecting light patterns onto brain tissue slices, and ask how cells ‘learn’. Because these processes are so intertwined and complex, we use computer models to see how events at many levels of brain function give rise to memory. We have developed a major simulation tool called MOOSE, to build computer models from molecules to networks.</p><br />',
                 })
                 vectorSource.addFeature(iconFeature);
                 
