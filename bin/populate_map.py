@@ -91,7 +91,7 @@ function init() {
             var elementdescription = document.getElementById('labdescription');
 
             elementname.innerHTML = properties.name;
-            elementleader.innerHTML = "<h4>Group leader: " + properties.leader + "</h4>";
+            elementleader.innerHTML = "<h4>Principal investigator: " + properties.leader + "</h4>";
             elementlocation.innerHTML = properties.location;
             elementwebsite.innerHTML = "<a href='" + properties.website + "'>" + properties.website + "</a>";
             elementdescription.innerHTML = properties.description;
@@ -144,8 +144,8 @@ function addmarkers() {
         with open(self.input_yaml, 'r') as f:
             self.yaml_data = yaml.load(f)
 
-        for group in self.yaml_data:
-            print(group)
+        # for group in self.yaml_data:
+        #    print(group)
 
     def generate_js(self):
         """Generate the required js."""
@@ -174,7 +174,7 @@ function addmarkers() {
                 """.format(group['data']['website'])
 
                 line8 = """description: '{}',
-                """.format(group['data']['description'].rstrip('\n'))
+                """.format(group['data']['description'].replace('\n', '<br />'))
 
                 lastline = """})
                 vectorSource.addFeature(iconFeature);
