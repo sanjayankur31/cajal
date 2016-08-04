@@ -174,7 +174,8 @@ function addmarkers() {
                 """.format(group['data']['website'])
 
                 line8 = """description: '{}',
-                """.format(group['data']['description'].replace('\n', '<br />'))
+                """.format(group['data']['description'].replace(
+                    '\n', '<br />').replace("'", "\\'"))
 
                 lastline = """})
                 vectorSource.addFeature(iconFeature);
