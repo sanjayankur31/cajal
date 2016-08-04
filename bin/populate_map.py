@@ -65,33 +65,36 @@ function init() {
         })
     });
 
-    var element = document.getElementById('popup');
-
-    var popup = new ol.Overlay({
-        element: element,
-        positioning: 'bottom-center',
-        stopEvent: false,
-        offset: [0, -50]
-    });
+    var popup = new ol.Overlay.Popup();
     map.addOverlay(popup);
 
     // display popup on click
-    map.on('click', function(evt) {
+    map.on('singleclick', function(evt) {
+        popup.hide();
+        popup.setOffset([0, 0]);
+
         var feature = map.forEachFeatureAtPixel(evt.pixel,
-            function(feature) {
+            function(feature, layer) {
                 return feature;
             });
         if (feature) {
             var coordinates = feature.getGeometry().getCoordinates();
-            popup.setPosition(coordinates);
-            $(element).popover({
-                'placement': 'top',
-                'html': true,
-                'content': 'test' // feature.get('name')
-            });
-            $(element).popover('show');
-        } else {
-            $(element).popover('destroy');
+            var properties = feature.getProperties()
+            info = "<h3>" + properties.name + "</h3>"
+            popup.setOffset([0, -22]);
+            popup.show(coordinates, info);
+
+            var elementname = document.getElementById('labname');
+            var elementleader = document.getElementById('lableader');
+            var elementlocation = document.getElementById('lablocation');
+            var elementwebsite = document.getElementById('labwebsite');
+            var elementdescription = document.getElementById('labdescription');
+
+            elementname.innerHTML = properties.name;
+            elementleader.innerHTML = "<h4>Group leader: " + properties.leader + "</h4>";
+            elementlocation.innerHTML = properties.location;
+            elementwebsite.innerHTML = "<a href='" + properties.website + "'>" + properties.website + "</a>";
+            elementdescription.innerHTML = properties.description;
         }
     });
 
@@ -157,13 +160,28 @@ function addmarkers() {
                            group['data']['coords']['lat'])
                 line3 = """'EPSG:4326','EPSG:3857')),
                 """
+
                 line4 = """name: '{}',
-                }})
                 """.format(group['group'])
-                line5 = """vectorSource.addFeature(iconFeature);
+
+                line5 = """leader: '{}',
+                """.format(group['data']['leader'])
+
+                line6 = """location: '{}',
+                """.format(group['data']['location'])
+
+                line7 = """website: '{}',
+                """.format(group['data']['website'])
+
+                line8 = """description: '{}',
+                """.format(group['data']['description'].rstrip('\n'))
+
+                lastline = """})
+                vectorSource.addFeature(iconFeature);
                 """
 
-                f.write(line1 + line2 + line3 + line4 + line5)
+                f.write(line1 + line2 + line3 + line4 + line5 + line6 + line7 +
+                        line8 + lastline)
 
             f.write(self.js_static_end)
 

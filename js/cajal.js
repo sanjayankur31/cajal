@@ -26,33 +26,36 @@ function init() {
         })
     });
 
-    var element = document.getElementById('popup');
-
-    var popup = new ol.Overlay({
-        element: element,
-        positioning: 'bottom-center',
-        stopEvent: false,
-        offset: [0, -50]
-    });
+    var popup = new ol.Overlay.Popup();
     map.addOverlay(popup);
 
     // display popup on click
-    map.on('click', function(evt) {
+    map.on('singleclick', function(evt) {
+        popup.hide();
+        popup.setOffset([0, 0]);
+
         var feature = map.forEachFeatureAtPixel(evt.pixel,
-            function(feature) {
+            function(feature, layer) {
                 return feature;
             });
         if (feature) {
             var coordinates = feature.getGeometry().getCoordinates();
-            popup.setPosition(coordinates);
-            $(element).popover({
-                'placement': 'top',
-                'html': true,
-                'content': 'test' // feature.get('name')
-            });
-            $(element).popover('show');
-        } else {
-            $(element).popover('destroy');
+            var properties = feature.getProperties()
+            info = "<h3>" + properties.name + "</h3>"
+            popup.setOffset([0, -22]);
+            popup.show(coordinates, info);
+
+            var elementname = document.getElementById('labname');
+            var elementleader = document.getElementById('lableader');
+            var elementlocation = document.getElementById('lablocation');
+            var elementwebsite = document.getElementById('labwebsite');
+            var elementdescription = document.getElementById('labdescription');
+
+            elementname.innerHTML = properties.name;
+            elementleader.innerHTML = "<h4>Group leader: " + properties.leader + "</h4>";
+            elementlocation.innerHTML = properties.location;
+            elementwebsite.innerHTML = "<a href='" + properties.website + "'>" + properties.website + "</a>";
+            elementdescription.innerHTML = properties.description;
         }
     });
 
@@ -81,6 +84,10 @@ function addmarkers() {
                 geometry: new ol.geom.Point(ol.proj.transform([-0.02231, 51.7634],
                 'EPSG:4326','EPSG:3857')),
                 name: 'UHBiocomputation',
+                leader: 'Dr. Volker Steuber',
+                location: 'Hatfield, United Kingdom',
+                website: 'http://biocomputation.herts.ac.uk',
+                description: 'The Biocomputation Research Group forms part of the Centre for Computer Science and Informatics Research (CCSIR), which is based within the Science and Technology Research Institute (STRI) at the University of Hertfordshire. Research in the Biocomputation Research Group involves the development of computational models to study biological systems, and the application of biologically-inspired machine learning algorithms for the analysis of real-world data. Members of the Biocomputation Group analyse and simulate computational models at different levels of complexity, and collaborate closely with leading experimentalists in the UK and abroad.',
                 })
                 vectorSource.addFeature(iconFeature);
                 
@@ -88,6 +95,10 @@ function addmarkers() {
                 geometry: new ol.geom.Point(ol.proj.transform([20.02231, 21.7634],
                 'EPSG:4326','EPSG:3857')),
                 name: 'Another group',
+                leader: 'Dr. Someone',
+                location: 'Somewhere',
+                website: 'http://biocomputation.herts.ac.uk',
+                description: 'Another group! Awesome!',
                 })
                 vectorSource.addFeature(iconFeature);
                 
@@ -95,6 +106,10 @@ function addmarkers() {
                 geometry: new ol.geom.Point(ol.proj.transform([0, 0],
                 'EPSG:4326','EPSG:3857')),
                 name: 'Equatorial tester',
+                leader: 'Dr. Someone too',
+                location: 'Somewhere',
+                website: 'http://biocomputation.herts.ac.uk/something',
+                description: 'Another group! Awesome! 2',
                 })
                 vectorSource.addFeature(iconFeature);
                 

@@ -1,24 +1,10 @@
+
+
 /* The map */
 var map;
 var vectorLayer
 
-/* Test data */
-var testlab = {}
-testlab.name = 'UHBiocomputation'
-/* remember that these need to be integers, not strings */
-testlab.long = -0.228
-testlab.lat = 51.762
-
 function init() {
-    /* load jquery for xml parsing */
-    (function() {
-        var script = document.createElement('script');
-        script.type = 'text/javascript';
-        script.src =  'jquery-3.1.0.min.js';
-
-        document.getElementsByTagName('head')[0].appendChild(script)
-    })();
-
     addmarkers()
 
     map = new ol.Map({
@@ -40,33 +26,36 @@ function init() {
         })
     });
 
-    var element = document.getElementById('popup');
-
-    var popup = new ol.Overlay({
-        element: element,
-        positioning: 'bottom-center',
-        stopEvent: false,
-        offset: [0, -50]
-    });
+    var popup = new ol.Overlay.Popup();
     map.addOverlay(popup);
 
     // display popup on click
-    map.on('click', function(evt) {
+    map.on('singleclick', function(evt) {
+        popup.hide();
+        popup.setOffset([0, 0]);
+        
         var feature = map.forEachFeatureAtPixel(evt.pixel,
-            function(feature) {
+            function(feature, layer) {
                 return feature;
             });
         if (feature) {
             var coordinates = feature.getGeometry().getCoordinates();
-            popup.setPosition(coordinates);
-            $(element).popover({
-                'placement': 'top',
-                'html': true,
-                'content': 'test' // feature.get('name')
-            });
-            $(element).popover('show');
-        } else {
-            $(element).popover('destroy');
+            var properties = feature.getProperties()
+            info = "<h3>" + properties.name + "</h3>"
+            popup.setOffset([0, -22]);
+            popup.show(coordinates, info);
+
+            var elementname = document.getElementById('labname');
+            var elementleader = document.getElementById('lableader');
+            var elementlocation = document.getElementById('lablocation');
+            var elementwebsite = document.getElementById('labwebsite');
+            var elementdescription = document.getElementById('labdescription');
+
+            elementname.innerHTML = properties.name;
+            elementleader.innerHTML = "<h4>Group leader: " + properties.leader + "</h4>";
+            elementlocation.innerHTML = properties.location;
+            elementwebsite.innerHTML = "<a href='" + properties.website + "'>" + properties.website + "</a>";
+            elementdescription.innerHTML = properties.description;
         }
     });
 
@@ -82,38 +71,48 @@ function init() {
     });
 }
 
-function addmarkers(xml) {
+function addmarkers() {
     /* This will read from the files and add markers for each based on location
-     * It'll also create an associative array that will populate info on-click 
+     * It'll also create an associative array that will populate info on-click
      */
     /* Array of vector features */
     var vectorSource = new ol.source.Vector({
     });
 
-    $.ajax({
-        type: "GET",
-        url: "data.xml",
-        dataType: "xml",
-        success: function (xml) {
-            var xmlDoc = $.parseXML(xml),
-                $xml = $(xmlDoc);
-            $xml.find('group').each(function () {
-                /* An icon */
+
                 var iconFeature = new ol.Feature({
-                    geometry: new ol.geom.Point(ol.proj.transform([testlab.long, testlab.lat],
-                        'EPSG:4326','EPSG:3857')),
-                    name: testlab.name,
-                    population: 0,
-                    rainfall: 0,
-                });
+                geometry: new ol.geom.Point(ol.proj.transform([-0.02231, 51.7634],
+                'EPSG:4326','EPSG:3857')),
+                name: 'UHBiocomputation',
+                leader: 'Volker',
+                location: 'Hatfield',
+                website: 'http://biocomputation.herts.ac.uk',
+                description: 'A lot of text should go here'
+                })
                 vectorSource.addFeature(iconFeature);
-            });
-        }
-    });
-
-
-
-
+                
+                var iconFeature = new ol.Feature({
+                geometry: new ol.geom.Point(ol.proj.transform([20.02231, 21.7634],
+                'EPSG:4326','EPSG:3857')),
+                name: 'Another group',
+                leader: '1Volker',
+                location: '1Hatfield',
+                website: 'http://1biocomputation.herts.ac.uk',
+                description: '1A lot of text should go here'
+                })
+                vectorSource.addFeature(iconFeature);
+                
+                var iconFeature = new ol.Feature({
+                geometry: new ol.geom.Point(ol.proj.transform([0, 0],
+                'EPSG:4326','EPSG:3857')),
+                name: 'Equatorial tester',
+                leader: '2Volker',
+                location: '2Hatfield',
+                website: 'http://2biocomputation.herts.ac.uk',
+                description: '2A lot of text should go here'
+                })
+                vectorSource.addFeature(iconFeature);
+                
     /* The icon style for all icons */
     var iconStyle = new ol.style.Style({
         image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
@@ -130,4 +129,3 @@ function addmarkers(xml) {
         style: iconStyle
     });
 }
-

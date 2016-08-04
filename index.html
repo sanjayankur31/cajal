@@ -23,6 +23,8 @@
     </style>
     <link rel="stylesheet" href="./css/ol.css" type="text/css">
     <script src="./js/ol.js" type="text/javascript"></script>
+    <script src="./js/ol3-popup.js" type="text/javascript"></script>
+    <script src="./js/jquery-3.1.0.min.js" type="text/javascript"></script>
     <script src="./js/cajal.js" type="text/javascript"></script>
 
     <title>Cajal - computational neuroscience research map</title>
@@ -39,8 +41,13 @@
                   <div id="map" class="map"><div id="popup"></div></div>
               </div>
               <div class="col-md-4">
-                  <h2>Info bar</h2>
-                  <div id="labinfo">Click a marker to view some information on the laboratory.</div>
+                  <h2 id="labname">Click on a marker</h2>
+                  <hr>
+                  <div id="lableader"></div>
+                  <div id="labwebsite"></div>
+                  <div id="lablocation"></div>
+                  <br />
+                  <div><p class="text-muted" id="labdescription"></p></div>
               </div>
           </div>
       </div>
