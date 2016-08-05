@@ -162,16 +162,20 @@ function addmarkers() {
                 """
 
                 line4 = """name: '{}',
-                """.format(group['group'])
+                """.format(group['group'].replace(
+                    '\n', '<br />').replace("'", "\\'"))
 
                 line5 = """leader: '{}',
-                """.format(group['data']['leader'])
+                """.format(group['data']['leader'].replace(
+                    '\n', '<br />').replace("'", "\\'"))
 
                 line6 = """location: '{}',
-                """.format(group['data']['location'])
+                """.format(group['data']['location'].replace(
+                    '\n', '<br />').replace("'", "\\'"))
 
                 line7 = """website: '{}',
-                """.format(group['data']['website'])
+                """.format(group['data']['website'].replace(
+                    '\n', '<br />').replace("'", "\\'"))
 
                 line8 = """description: '{}',
                 """.format(group['data']['description'].replace(
