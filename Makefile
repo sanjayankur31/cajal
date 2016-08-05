@@ -6,7 +6,7 @@ BASEDIR=$(CURDIR)
 
 FTP_HOST=ftp.ankursinha.in
 FTP_USER=ankurhsj
-FTP_TARGET_DIR=/public_html/cajal
+FTP_TARGET_DIR=/public_html/cajal-map
 FTP_PORT=21
 
 help:
@@ -21,6 +21,7 @@ html:
 	$(PY) $(SCRIPT)
 	rm -fr $(OUTPUTDIR)/*
 	cp -r js css index.html $(OUTPUTDIR)
+	cp -f data/htaccess $(OUTPUTDIR)/.htaccess
 
 
 ftp_upload: html
