@@ -256,6 +256,50 @@ function addmarkers() {
                 })
                 vectorSource.addFeature(iconFeature);
                 
+                var iconFeature = new ol.Feature({
+                geometry: new ol.geom.Point(ol.proj.transform([144.9612, -37.7964],
+                'EPSG:4326','EPSG:3857')),
+                name: 'French Lab',
+                leader: 'Chris French',
+                location: 'University of Melbourne, Victoria',
+                website: 'http://www.findanexpert.unimelb.edu.au/display/person179136',
+                description: '"<p></p>"<br />',
+                })
+                vectorSource.addFeature(iconFeature);
+                
+                var iconFeature = new ol.Feature({
+                geometry: new ol.geom.Point(ol.proj.transform([-111.9281, 33.4242],
+                'EPSG:4326','EPSG:3857')),
+                name: 'Gerkin Lab',
+                leader: 'Richard Gerkin',
+                location: 'Arizona State University, Arizona',
+                website: 'http://carnegie-mellon.academia.edu/RichardGerkin',
+                description: '"<p></p>"<br />',
+                })
+                vectorSource.addFeature(iconFeature);
+                
+                var iconFeature = new ol.Feature({
+                geometry: new ol.geom.Point(ol.proj.transform([-0.133625, 51.53],
+                'EPSG:4326','EPSG:3857')),
+                name: 'Hausser Lab',
+                leader: 'Michael Hausser',
+                location: 'University College London, London, United Kingdom',
+                website: 'http://www.dendrites.org/',
+                description: '"<p>We are interested in understanding computations in neural circuits of the mammalian brain. To attack this problem we work at the interface between cellular and systems neuroscience: we aim to understand the cellular toolkit that enables single neurons to perform computations, and in turn how single neurons and their patterns of connections contribute to the computations performed by the network. Our lab has a special focus on neuronal dendrites, which actively transform synaptic inputs into specific neuronal output patterns. We use the cerebellum and neocortex as model systems, combining in vitro and in vivo imaging and electrophysiology approaches, and taking advantage of a range of high-tech approaches developed in the lab. These include two-photon microscopy, patch-clamp recordings from dendrites, simultaneous recordings from multiple synaptically connected cells, and most recently the development of \'all-optical\' approaches for simultaneous readout and manipulation of neurons using two-photon imaging and optogenetics. Our experiments are complemented by computational models of single neurons and networks of neurons. At each stage of our work, our aim is to link different levels of brain function, in order to reveal how activity in single neurons and neural circuits encodes defined behaviours and, importantly, what kinds of changes take place within these circuits during learning.</p>"<br />',
+                })
+                vectorSource.addFeature(iconFeature);
+                
+                var iconFeature = new ol.Feature({
+                geometry: new ol.geom.Point(ol.proj.transform([8.632258, 50.176695],
+                'EPSG:4326','EPSG:3857')),
+                name: 'Helmstaedter Lab',
+                leader: 'Moritz Helmstaedter',
+                location: 'Max Planck Institute of Neurobiology, Munich',
+                website: 'http://brain.mpg.de',
+                description: '"<p>Our goal is to decipher how the cerebral cortex stores sensory experience and uses it to detect objects in the current environment. </p><br /><p>To this end, we develop and apply methods for measuring communication maps of neuronal circuits, connectomes. We strive to push the frontiers of connectomics to make the mapping of neuronal circuits a high-throughput technique. </p>"<br />',
+                })
+                vectorSource.addFeature(iconFeature);
+                
     /* The icon style for all icons */
     var iconStyle = new ol.style.Style({
         image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
