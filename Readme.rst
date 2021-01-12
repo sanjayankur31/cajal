@@ -1,6 +1,10 @@
 Cajal - The neuroscience laboratory map
 -----------------------------------------------------
 
+
+NOTE: This repository is no longer being worked on and is archived.
+
+
 This is a tiny pet project I'm workin on. The idea is to mark all the laboratories carrying out neuroscience reseach on a world map in an attempt to make them more accessible to the community.
 
 Contributing
